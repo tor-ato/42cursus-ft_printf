@@ -6,7 +6,7 @@
 #    By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 14:42:18 by tkitahar          #+#    #+#              #
-#    Updated: 2024/05/14 16:19:09 by tkitahar         ###   ########.fr        #
+#    Updated: 2024/05/16 15:47:45 by tkitahar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,12 @@ NAME = libftprintf.a
 CCLFAGS = -Wall -Wextra -Werror
 ARFLAGS = -rsc
 CCDEBUGFLAGS = -g -fsanitize=address
+LIBFT = libft/
+LIBFTA = libft.a
 
 OBJNAME = ft_printf \
+			ft_pchar \
+			$(addprefix $(LIBFT), $(OBJNLIBFT))
 
 OBJS = $(addsuffix .o, $(OBJNAME))
 
@@ -23,7 +27,8 @@ OBJS = $(addsuffix .o, $(OBJNAME))
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(AR) $(ARFLAGS) $@ $^
+	@make -C libft
+	$(AR) $(ARFLAGS) $@ $^ $(LIBFT)$(LIBFTA)
 
 %.o : %.c
 	$(CC) -c $(CCLFAGS) $^
@@ -39,6 +44,5 @@ re : fclean all
 .PHONY : all, clean, fclean, re
 
 tst : $(OBJS)
-	# $(CC) $(CCDEBUGFLAGS) $(CCLFAGS) $(OBJS)
-	$(CC)  $(CCLFAGS) $(OBJS)
+	$(CC)  $(CCLFAGS) $(OBJS) $(LIBFT)$(LIBFTA)
 	./a.out
