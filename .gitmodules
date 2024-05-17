@@ -1,3 +1,6 @@
 [submodule "42cursus-libft"]
 	path = 42cursus-libft
 	url = git@github.com:tor-ato/42cursus-libft.git
+[submodule "libft"]
+	path = libft
+	url = git@github.com:tor-ato/42cursus-libft.git
