@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_p_char.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 14:42:12 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/05/17 17:33:36 by tkitahar         ###   ########.fr       */
+/*   Created: 2024/05/16 15:16:23 by tkitahar          #+#    #+#             */
+/*   Updated: 2024/05/17 17:27:35 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include <stdarg.h>
+#include "ft_printf.h"
 
-int	ft_printf(const char *, ...);
-
-int	ft_putchar(char c);
-int	ft_putstr(char *c);
-int	ft_putnbr(long adres, char *base);
-int	ft_putadres(uintptr_t nbr, char *base);
+int	ft_putchar(char c)
+{
+	ft_putchar_fd(c, 1);
+	return (1);
+}

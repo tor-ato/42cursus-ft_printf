@@ -6,7 +6,7 @@
 #    By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 14:42:18 by tkitahar          #+#    #+#              #
-#    Updated: 2024/05/16 15:47:45 by tkitahar         ###   ########.fr        #
+#    Updated: 2024/05/17 17:47:54 by tkitahar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ LIBFT = libft/
 LIBFTA = libft.a
 
 OBJNAME = ft_printf \
-			ft_pchar \
+			ft_putchar \
+			ft_putstr \
+			ft_putaddress \
+			ft_putnbr \
 			$(addprefix $(LIBFT), $(OBJNLIBFT))
 
 OBJS = $(addsuffix .o, $(OBJNAME))
@@ -44,5 +47,6 @@ re : fclean all
 .PHONY : all, clean, fclean, re
 
 tst : $(OBJS)
-	$(CC)  $(CCLFAGS) $(OBJS) $(LIBFT)$(LIBFTA)
+	@make -C libft
+	$(CC) $(CCLFAGS) $(OBJS) $(LIBFT)$(LIBFTA)
 	./a.out
