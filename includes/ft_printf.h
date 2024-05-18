@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                         :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 15:51:02 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/05/17 17:27:46 by tkitahar         ###   ########.fr       */
+/*   Created: 2024/05/14 14:42:12 by tkitahar          #+#    #+#             */
+/*   Updated: 2024/05/18 20:45:21 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
+#include <stdarg.h>
 
-int	ft_putnbr(long nbr, char *base)
-{
-	int	len;
-	int	base_len;
+int	ft_printf(const char *fmt, ...);
 
-	len = 0;
-	base_len = 0;
-	base_len = ft_strlen(base);
-	if (nbr < 0)
-	{
-		len += ft_putchar('-');
-		nbr = -nbr;
-	}
-	if (nbr < base_len)
-		len += ft_putchar(base[nbr]);
-	else
-	{
-		len += ft_putnbr(nbr / base_len, base);
-		len += ft_putnbr(nbr % base_len, base);
-	}
-	return (len);
-}
+int	ft_putchar(char c);
+int	ft_putstr(char *c);
+int	ft_putnbr(long nbr, char *base);
+int	ft_putaddress(uintptr_t nbr, char *base);

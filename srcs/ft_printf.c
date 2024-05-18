@@ -6,11 +6,11 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 17:38:34 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/05/18 15:51:33 by tkitahar         ###   ########.fr       */
+/*   Updated: 2024/05/18 22:11:38 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	hundle_format(va_list ap, char spe)
 {
@@ -55,28 +55,30 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-#include <libc.h>
-#include <stdio.h>
-#include <stdlib.h>
+// #include <libc.h>
+// #include <limits.h>
+// #include <stdio.h>
+// #include <stdlib.h>
 
-int	main(void)
-{
-	int	ft;
-	int	origin;
-	int	*ft_ad;
-	int	*origin_ad;
-	int	i;
+// int	main(void)
+// {
+// 	int	ft;
+// 	int	origin;
+// 	int	*ft_ad;
+// 	int	*origin_ad;
 
-	i = 0;
-	while (i < 5)
-		i++;
-	ft = 123;
-	origin = 123;
-	ft_ad = &ft;
-	origin_ad = &origin;
-	ft = ft_printf("ft \t %d \n", ft);
-	// printf("print nbr \t %d \n", ft);
-	origin = printf("or \t %d \n", origin);
-	// printf("print nbr \t %d \n", origin);
-	return (0);
-}
+// 	ft = 123;
+// 	origin = 123;
+// 	ft_ad = &ft;
+// 	origin_ad = &origin;
+// 	ft = ft_printf("ft \t %p %p \n", LONG_MIN, LONG_MAX);
+// 	// printf("print nbr \t %d \n", ft);
+// 	// origin = printf("or \t %p %p \n", LONG_MIN, LONG_MAX);
+// 	// printf("print nbr \t %d \n", origin);
+// 	return (0);
+// }
+
+// // int	main(void)
+// // {
+// // 	printf(" %p %p ", LONG_MIN, LONG_MAX);
+// // }

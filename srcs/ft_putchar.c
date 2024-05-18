@@ -6,11 +6,11 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:16:23 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/05/18 14:12:52 by tkitahar         ###   ########.fr       */
+/*   Updated: 2024/05/18 18:00:51 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {

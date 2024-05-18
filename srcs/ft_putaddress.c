@@ -6,18 +6,27 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:50:51 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/05/18 14:32:15 by tkitahar         ###   ########.fr       */
+/*   Updated: 2024/05/18 22:14:50 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putaddress(uintptr_t nbr, char *base)
 {
-	int	len;
+	int			len;
+	uintptr_t	base_len;
 
 	len = 0;
-	(void)base;
-	(void)nbr;
+	base_len = 0;
+	len += ft_putstr("0x");
+	base_len = ft_strlen(base);
+	if (nbr < base_len)
+		len += ft_putchar(base[nbr]);
+	else
+	{
+		len += ft_putnbr(nbr / base_len, base);
+		len += ft_putnbr(nbr % base_len, base);
+	}
 	return (len);
 }

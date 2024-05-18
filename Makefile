@@ -6,7 +6,7 @@
 #    By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 14:42:18 by tkitahar          #+#    #+#              #
-#    Updated: 2024/05/18 15:07:27 by tkitahar         ###   ########.fr        #
+#    Updated: 2024/05/18 19:43:28 by tkitahar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,10 +60,11 @@ re : fclean all
 
 tst : $(LIBFTA) $(OBJS)
 	@make -C $(LIBFT_DIR)
-	$(CC) $(CCDEBUGFLAGS)  $(CCLFAGS) $(OBJS) $(LIBFT)$(LIBFTA)
+	$(CC) $(CCDEBUGFLAGS)   $(OBJS) $(LIBFT)$(LIBFTA)
 	./a.out
+
 
 debug : $(LIBFTA) $(SRCS)
 	@make -C $(LIBFT_DIR)
 	$(CC) $(CCDEBUGFLAGS) $(SRCS) $(LIBFT)$(LIBFTA) $(INCLUDES)
-	 ./a.out
+	./a.out
