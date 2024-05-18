@@ -6,41 +6,52 @@
 #    By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 14:42:18 by tkitahar          #+#    #+#              #
-#    Updated: 2024/05/17 17:47:54 by tkitahar         ###   ########.fr        #
+#    Updated: 2024/05/18 13:38:24 by tkitahar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-CCLFAGS = -Wall -Wextra -Werror
-ARFLAGS = -rsc
-CCDEBUGFLAGS = -g -fsanitize=address
-LIBFT = libft/
-LIBFTA = libft.a
 
-OBJNAME = ft_printf \
+FILENAME = ft_printf \
 			ft_putchar \
 			ft_putstr \
 			ft_putaddress \
-			ft_putnbr \
-			$(addprefix $(LIBFT), $(OBJNLIBFT))
+			ft_putnbr
 
-OBJS = $(addsuffix .o, $(OBJNAME))
+OBJS = $(addprefix objs/, $(addsuffix .o, $(FILENAME)))
 
+LIBFT_DIR = ./libft
+LIBFTA = $(LIBFT_DIR)/libft.a
+
+CCLFAGS = -Wall -Wextra -Werror
+ARFLAGS = -rsc
+CCDEBUGFLAGS = -g -fsanitize=address
+INCLUDES = -I includes
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	@make -C libft
-	$(AR) $(ARFLAGS) $@ $^ $(LIBFT)$(LIBFTA)
+$(NAME) : $(LIBFTA) $(OBJS)
+	cp $(LIBFTA) $(NAME)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
-%.o : %.c
-	$(CC) -c $(CCLFAGS) $^
+$(LIBFTA):
+	@make -C $(LIBFT_DIR)
+
+objs/%.o : srcs/%.c
+	@if[ ! d "objs" ]; then\
+		mkdir objs;\
+	fi
+	@if[ ! -f "includes/libft.h" ]; then\
+		cp libft/includes/libft.h includes/libft.h;\
+	fi
+	$(CC) $(CCLFAGS) $(INCLUDES) -c $< -o $@
 
 clean :
-	$(RM) $(OBJS)
+	make -C $(LIBFT_DIR) clean
+	$(RM) -r $(OBJS)
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(LIBFTA)
 
 re : fclean all
 
