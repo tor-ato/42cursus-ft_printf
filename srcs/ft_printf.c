@@ -6,11 +6,11 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 17:38:34 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/05/17 17:47:11 by tkitahar         ###   ########.fr       */
+/*   Updated: 2024/05/18 14:12:47 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 
 int	hundle_format(va_list ap, char spe)
 {

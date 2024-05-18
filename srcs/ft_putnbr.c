@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 #include <stdio.h>
 
 int	ft_putnbr(long nbr, char *base)
@@ -29,7 +29,7 @@ int	ft_putnbr(long nbr, char *base)
 	}
 	if (nbr < base_len)
 	{
-		printf("nbr %d", nbr);
+		printf("nbr %ld", nbr);
 		len += ft_putchar(base[nbr]);
 	}
 	else

@@ -6,7 +6,7 @@
 #    By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 14:42:18 by tkitahar          #+#    #+#              #
-#    Updated: 2024/05/18 13:38:24 by tkitahar         ###   ########.fr        #
+#    Updated: 2024/05/18 14:07:26 by tkitahar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,13 +35,13 @@ $(NAME) : $(LIBFTA) $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 $(LIBFTA):
-	@make -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR)
 
 objs/%.o : srcs/%.c
-	@if[ ! d "objs" ]; then\
+	@if [ ! -d "objs" ]; then\
 		mkdir objs;\
 	fi
-	@if[ ! -f "includes/libft.h" ]; then\
+	@if [ ! -f "includes/libft.h" ]; then\
 		cp libft/includes/libft.h includes/libft.h;\
 	fi
 	$(CC) $(CCLFAGS) $(INCLUDES) -c $< -o $@
