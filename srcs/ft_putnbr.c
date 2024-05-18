@@ -28,10 +28,7 @@ int	ft_putnbr(long nbr, char *base)
 		nbr *= -1;
 	}
 	if (nbr < base_len)
-	{
-		printf("nbr %ld", nbr);
 		len += ft_putchar(base[nbr]);
-	}
 	else
 	{
 		len += ft_putnbr(nbr / base_len, base);

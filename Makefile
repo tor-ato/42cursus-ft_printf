@@ -6,7 +6,7 @@
 #    By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 14:42:18 by tkitahar          #+#    #+#              #
-#    Updated: 2024/05/18 14:07:26 by tkitahar         ###   ########.fr        #
+#    Updated: 2024/05/18 15:07:27 by tkitahar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ FILENAME = ft_printf \
 			ft_putnbr
 
 OBJS = $(addprefix objs/, $(addsuffix .o, $(FILENAME)))
+SRCS = $(addprefix srcs/, $(addsuffix .c, $(FILENAME)))
 
 LIBFT_DIR = ./libft
 LIBFTA = $(LIBFT_DIR)/libft.a
@@ -57,7 +58,12 @@ re : fclean all
 
 .PHONY : all, clean, fclean, re
 
-tst : $(OBJS)
-	@make -C libft
-	$(CC) $(CCLFAGS) $(OBJS) $(LIBFT)$(LIBFTA)
+tst : $(LIBFTA) $(OBJS)
+	@make -C $(LIBFT_DIR)
+	$(CC) $(CCDEBUGFLAGS)  $(CCLFAGS) $(OBJS) $(LIBFT)$(LIBFTA)
 	./a.out
+
+debug : $(LIBFTA) $(SRCS)
+	@make -C $(LIBFT_DIR)
+	$(CC) $(CCDEBUGFLAGS) $(SRCS) $(LIBFT)$(LIBFTA) $(INCLUDES)
+	 ./a.out

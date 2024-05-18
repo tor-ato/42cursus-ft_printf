@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 17:38:34 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/05/18 14:12:47 by tkitahar         ###   ########.fr       */
+/*   Updated: 2024/05/18 15:51:33 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	hundle_format(va_list ap, char spe)
 	else if (spe == 's')
 		len += ft_putstr(va_arg(ap, char *));
 	else if (spe == 'p')
-		len += ft_putadres(va_arg(ap, uintptr_t), "0123456789abcdef");
+		len += ft_putaddress(va_arg(ap, uintptr_t), "0123456789abcdef");
 	else if (spe == 'd' || spe == 'i')
 		len += ft_putnbr(va_arg(ap, int), "0123456789");
 	else if (spe == 'u')
@@ -65,14 +65,18 @@ int	main(void)
 	int	origin;
 	int	*ft_ad;
 	int	*origin_ad;
+	int	i;
 
+	i = 0;
+	while (i < 5)
+		i++;
 	ft = 123;
 	origin = 123;
 	ft_ad = &ft;
 	origin_ad = &origin;
-	ft = ft_printf("ft \t %d \n", ft_ad);
-	printf("print nbr \t %d \n", ft);
-	origin = printf("or \t %p \n", origin_ad);
-	printf("print nbr \t %d \n", origin);
+	ft = ft_printf("ft \t %d \n", ft);
+	// printf("print nbr \t %d \n", ft);
+	origin = printf("or \t %d \n", origin);
+	// printf("print nbr \t %d \n", origin);
 	return (0);
 }
