@@ -4,3 +4,4 @@ objs/
 .gitignore
 .gitmodules
 .vscode/
+.DS_Store
