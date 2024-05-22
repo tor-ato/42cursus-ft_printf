@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:51:02 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/05/19 13:22:03 by tkitahar         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:17:18 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ int	ft_putnbr(long nbr, char *base)
 	int	base_len;
 
 	len = 0;
-	base_len = 0;
 	base_len = ft_strlen(base);
 	if (nbr < 0)
 	{
-		len += ft_putchar('-');
+		len = ft_putchar('-');
 		nbr = -nbr;
 	}
 	if (nbr < base_len)
