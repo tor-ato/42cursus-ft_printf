@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 17:38:34 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/05/19 15:54:11 by tkitahar         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:26:49 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,9 @@ int	ft_printf(const char *str, ...)
 // 	origin = 123;
 // 	ft_ad = &ft;
 // 	origin_ad = &origin;
-// 	ft = ft_printf("ft \t %p %p \n", LONG_MIN, LONG_MAX);
-// 	// printf("print nbr \t %d \n", ft);
-// 	// origin = printf("or \t %p %p \n", LONG_MIN, LONG_MAX);
-// 	// printf("print nbr \t %d \n", origin);
+// ft = ft_printf("ft \t %p %p \n", LONG_MIN, LONG_MAX);
+// printf("print nbr \t %d \n", ft);
+// origin = printf("or \t %p %p \n", LONG_MIN, LONG_MAX);
+// printf("print nbr \t %d \n", origin);
 // 	return (0);
 // }
-
-// // int	main(void)
-// // {
-// // 	printf(" %p %p ", LONG_MIN, LONG_MAX);
-// // }
